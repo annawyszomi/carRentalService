@@ -21,5 +21,10 @@ public class Car {
     private String model;
     @Enumerated(EnumType.STRING)
     private CarStatus status;
+//    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL,
+//            fetch = FetchType.LAZY, optional = false)
+//    private User user;
+
+
 
 }

@@ -1,6 +1,5 @@
 package org.example.services;
 
-import camel.organisation.User;
 import org.example.domain.Car;
 import org.example.domain.CarStatus;
 import org.example.repositories.CarRepository;
