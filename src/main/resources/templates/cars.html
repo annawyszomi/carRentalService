@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cars</title>
+</head>
+<body>
+<!--<p>-->
+<!--    <span th:text="List of cars"></span>-->
+<!--</p>-->
+
+<!--<div th:if="${ not#lists.isEmpty(cars)}">-->
+    <table>
+        <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Status</th>
+        </tr>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.brand}"></td>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.status}"></td>
+        </tr>
+        <table>
+<!--</div>-->
+
+</body>
+</html>

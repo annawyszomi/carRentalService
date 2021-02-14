@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+</lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add new car</title>
+</head>
+<body>
+<form action="#" th:action="@{/addCar}" th:object="${car}" method="post">
+    <label for="brand">Brand</label>
+    <input type="text" th:field="*{brand}" id="email" placeholder="Brand">
+    <span th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}"></span>
+
+    <label for="model">Model</label>
+    <input type="text" th:field="*{model}" id="model" placeholder="Model">
+    <span th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></span>
+
+
+    <label for="status">Status</label>
+    <!--    <input type="text" th:field="*{status}" id="status" placeholder="Status">-->
+    <!--    <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></span>-->
+    <select name="status" th:field="*{status}">
+            <option th:each="status : ${T(org.example.domain.CarStatus).values()}"
+                    th:value="${status}" th:text="${status}"></option>
+    </select>
+        <input type="submit" value="Add Car">
+</body>
+</html>

@@ -53,6 +53,6 @@ public class ThymeleafConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("start");
+        registry.addViewController("/").setViewName("index");
     }
 }

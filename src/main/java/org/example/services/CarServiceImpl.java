@@ -2,6 +2,7 @@ package org.example.services;
 
 import camel.organisation.User;
 import org.example.domain.Car;
+import org.example.domain.CarStatus;
 import org.example.repositories.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,8 +48,8 @@ public class CarServiceImpl implements CarService {
 
         if(optionalCar.isPresent()){
             Car existingCar = optionalCar.get();
-            if(car.getStatus()!=null){
-                existingCar.setStatus(car.getStatus());
+            if(car.getStatus()==CarStatus.RENTED){
+                existingCar.setStatus(CarStatus.AVAILABLE);
             }
             carRepository.save(existingCar);
             return Optional.of(existingCar);
