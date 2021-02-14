@@ -1,5 +1,4 @@
 package org.example.controller;
-
 import org.example.domain.Car;
 import org.example.services.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ public class CarController {
     @Autowired
     CarService carService;
 
-    @PostMapping("/addCar")
+    @PostMapping("/add")
     public ResponseEntity<?> addCar(@RequestBody Car car){
         carService.add(car);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -32,7 +31,7 @@ public class CarController {
         return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/updateCar")
     public ResponseEntity<?> updateCar(@RequestBody Car car){
         Optional<Car> carOptional = carService.update(car);
 
@@ -42,7 +41,7 @@ public class CarController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PutMapping("/rent")
+    @PutMapping("/rentCar")
     public ResponseEntity<?> rentCar(@RequestBody Car car){
         Optional<Car> carOptional = carService.rent(car);
 

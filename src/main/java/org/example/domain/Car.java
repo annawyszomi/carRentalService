@@ -2,19 +2,24 @@ package org.example.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Objects;
 
 @Data
 @Entity
 public class Car {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
+    @NotNull
+    @Size(min=2, max=30)
     private String brand;
+    @NotNull
+    @Size(min=2, max=30)
     private String model;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private CarStatus status;
+
 }

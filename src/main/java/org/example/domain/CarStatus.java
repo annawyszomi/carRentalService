@@ -1,6 +1,18 @@
 package org.example.domain;
 
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public enum CarStatus {
-    RENTED, AVAILABLE
+
+    AVAILABLE, RENTED;
+
+    @Id
+    @GeneratedValue
+    private int id;
 
 }
